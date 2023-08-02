@@ -1,0 +1,109 @@
+﻿@model TrainingApplication.Models.Character
+
+<form method="post" asp-action="CreateCharacter">
+    <div class="border p-3">
+        <div class="form-group row">
+            <h2 class="text-black-50 pl-3">Add Character</h2>
+        </div>
+        <div class="row" style="align-content=center;">
+            <div class="col-12">
+                <div class="form-group row">
+                    <div class="col-3">
+                        <label asp-for="Characters"></label>
+                    </div>
+                    <div class="col-1 ">
+                        <label asp-for="Level"></label>
+                    </div>
+                    <div class="col-2">
+                        <label asp-for="Nation"></label>
+                    </div>
+                    <div class="col-2">
+                        <label asp-for="VisionType"></label>
+                    </div>
+                    <div class="col-2">
+                        <label asp-for="Weapon"></label>
+                    </div>
+                    <div class="col-2">
+                        <label>Birthday</label>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-3">
+                        <select asp-for="Characters" class="form-control" id="onSelect" onchange="birthday()">
+                            <option selected value="DEFAULT" disabled>Select Character</option>
+                            <option value="Albedo">Albedo</option>
+                            <option value="Alhaitham">Alhaitham</option>
+                            <option value="Aloy">Aloy</option>
+                            <option value="Amber">Amber</option>
+                            <option value="Arataki Itto">Arataki Itto</option>
+                            <option value="Baizhu">Baizhu</option>
+                            <option value="Barbara">Barbara</option>
+                        </select>
+                        <span asp-validation-for="Characters" class="text-danger"></span>
+                    </div>
+                    <div class="col-1">
+                        <input asp-for="Level" class="form-control" />
+                        <span asp-validation-for="Level" class="text-danger"></span>
+                    </div>
+                    <div class="col-2">
+                        <select asp-for="Nation" class="form-control">
+                            <option selected value="DEFAULT" disabled>Select Nation</option>
+                            <option value="Mondstat">Mondstat</option>
+                            <option value="Liyue">Liyue</option>
+                            <option value="Inazuma">Inazuma</option>
+                            <option value="Sumeru">Sumeru</option>
+                            <option value="Fontain">Fontain</option>
+                            <option value="Natlan">Natlan</option>
+                            <option value="Snezhnaya">Snezhnaya</option>
+                        </select>
+                        <span asp-validation-for="Nation" class="text-danger"></span>
+                    </div>
+                    <div class="col-2">
+                        <select asp-for="VisionType" class="form-control">
+                            <option selected value="DEFAULT" disabled>Select Vision</option>
+                            <option value="Anemo">Anemo</option>
+                            <option value="Geo">Geo</option>
+                            <option value="Electro">Electro</option>
+                            <option value="Dendro">Dendro</option>
+                            <option value="Hydro">Hydro</option>
+                            <option value="Pyro">Pyro</option>
+                            <option value="Cryo">Cryo</option>
+                        </select>
+                        <span asp-validation-for="VisionType" class="text-danger"></span>
+                    </div>
+                    <div class="col-2">
+                        <select asp-for="Weapon" class="form-control">
+                            <option selected value="DEFAULT" disabled>Select Weapon</option>
+                            <option value="Sword">Sword</option>
+                            <option value="Claymore">Claymore</option>
+                            <option value="Polearms">Polearms</option>
+                            <option value="Catalysts">Catalysts</option>
+                            <option value="Bow">Bow</option>
+                        </select>
+                        <span asp-validation-for="Weapon" class="text-danger"></span>
+                    </div>
+                    <div class="col-2">
+                        <p type="text" class="form-control" id="bdate" >
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-8 offset-2 row">
+                        <div class="col">
+                            <input type="submit" class="btn btn-info w-75" value="Create"/>
+                        </div>
+                        <div class="col">
+                            <a asp-action="Index" class="btn btn-danger w-75">Back</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</form>
+@section Scripts{ 
+    @{ 
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
+ 

@@ -1,0 +1,64 @@
+﻿@model TrainingApplication.Models.Character
+
+<form method="post" asp-action="RemovePost">
+    <input asp-for="Id" hidden />
+    <div class="border p-3">
+        <div class="form-group row">
+            <h2 class="text-black-50 pl-3">Delete Character</h2>
+        </div>
+        <div class="row" style="align-content=center;">
+            <div class="col-12">
+                <div class="form-group row">
+                    <div class="col-3">
+                        <label asp-for="Characters"></label>
+                    </div>
+                    <div class="col-2 ">
+                        <label asp-for="Level"></label>
+                    </div>
+                    <div class="col-3">
+                        <label asp-for="Nation"></label>
+                    </div>
+                    <div class="col-2">
+                        <label asp-for="VisionType"></label>
+                    </div>
+                    <div class="col-2">
+                        <label asp-for="Weapon"></label>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-3">
+                        <input asp-for="Characters" disabled class="form-control" />
+                    </div>
+                    <div class="col-2">
+                        <input asp-for="Level" disabled class="form-control" />
+                    </div>
+                    <div class="col-3">
+                        <input asp-for="Nation" disabled class="form-control" />
+                    </div>
+                    <div class="col-2">
+                        <input asp-for="VisionType" disabled class="form-control" />
+                    </div>
+                    <div class="col-2">
+                        <input asp-for="Weapon" disabled class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-8 offset-2 row">
+                        <div class="col">
+                            <input type="submit" class="btn btn-danger w-75" value="Remove" />
+                        </div>
+                        <div class="col">
+                            <a asp-action="Index" class="btn btn-success w-75">Back</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</form>
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

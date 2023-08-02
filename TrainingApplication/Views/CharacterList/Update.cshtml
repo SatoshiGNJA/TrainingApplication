@@ -1,0 +1,69 @@
+﻿@model TrainingApplication.Models.Character
+
+<form method="post" asp-action="Update">
+    <input asp-for="Id" hidden />
+    <div class="border p-3">
+        <div class="form-group row">
+            <h2 class="text-black-50 pl-3">Update Character</h2>
+        </div>
+        <div class="row" style="align-content=center;">
+            <div class="col-12">
+                <div class="form-group row">
+                    <div class="col-3">
+                        <label asp-for="Characters"></label>
+                    </div>
+                    <div class="col-2 ">
+                        <label asp-for="Level"></label>
+                    </div>
+                    <div class="col-3">
+                        <label asp-for="Nation"></label>
+                    </div>
+                    <div class="col-2">
+                        <label asp-for="VisionType"></label>
+                    </div>
+                    <div class="col-2">
+                        <label asp-for="Weapon"></label>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-3">
+                        <input asp-for="Characters" class="form-control" />
+                        <span asp-validation-for="Characters" class="text-danger"></span>
+                    </div>
+                    <div class="col-2">
+                        <input asp-for="Level" class="form-control" />
+                        <span asp-validation-for="Level" class="text-danger"></span>
+                    </div>
+                    <div class="col-3">
+                        <input asp-for="Nation" class="form-control" />
+                        <span asp-validation-for="Nation" class="text-danger"></span>
+                    </div>
+                    <div class="col-2">
+                        <input asp-for="VisionType" class="form-control" />
+                        <span asp-validation-for="VisionType" class="text-danger"></span>
+                    </div>
+                    <div class="col-2">
+                        <input asp-for="Weapon" class="form-control" />
+                        <span asp-validation-for="Weapon" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-8 offset-2 row">
+                        <div class="col">
+                            <input type="submit" class="btn btn-info w-75" value="Update" />
+                        </div>
+                        <div class="col">
+                            <a asp-action="Index" class="btn btn-danger w-75">Back</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</form>
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
