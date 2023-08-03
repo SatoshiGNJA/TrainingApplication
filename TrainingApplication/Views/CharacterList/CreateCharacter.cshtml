@@ -24,7 +24,7 @@
                         <label asp-for="Weapon"></label>
                     </div>
                     <div class="col-2">
-                        <label>Birthday</label>
+                        <label asp-for="Birthday"></label>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -42,7 +42,7 @@
                         <span asp-validation-for="Characters" class="text-danger"></span>
                     </div>
                     <div class="col-1">
-                        <input asp-for="Level" class="form-control" />
+                        <input asp-for="Level" class="form-control"/>
                         <span asp-validation-for="Level" class="text-danger"></span>
                     </div>
                     <div class="col-2">
@@ -76,14 +76,14 @@
                             <option selected value="DEFAULT" disabled>Select Weapon</option>
                             <option value="Sword">Sword</option>
                             <option value="Claymore">Claymore</option>
-                            <option value="Polearms">Polearms</option>
+                            <option value="Polearm">Polearms</option>
                             <option value="Catalysts">Catalysts</option>
                             <option value="Bow">Bow</option>
                         </select>
                         <span asp-validation-for="Weapon" class="text-danger"></span>
                     </div>
                     <div class="col-2">
-                        <p type="text" class="form-control" id="bdate" >
+                        <input readonly asp-for="Birthday" id="bdate" class="form-control" value="Birthday" />         
                     </div>
                 </div>
                 <div class="form-group row">

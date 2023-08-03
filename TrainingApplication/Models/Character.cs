@@ -24,6 +24,7 @@ namespace TrainingApplication.Models
         public int Level { get; set; }
         [Required]
         public string Nation { get; set; }
+        [Required]
         public string Birthday { get; set; }
 
     }

@@ -5,8 +5,13 @@
         <div class="col-6">
             <h2 class="text-primary">Your Characters</h2>
         </div>
-        <div class="col-6 text-right" >
-            <a class="btn btn-primary text-white" asp-controller="CharacterList" asp-action="CreateCharacter">Add New Character</a>
+        <div class="col-6 text-right">
+            <a class="btn btn-primary text-white" asp-controller="CharacterList" asp-action="CreateCharacter">Add Existing Character</a>
+        </div>
+        <br />
+        <div class="form-inline text-right">
+            <label>Search:&nbsp;</label>
+            <input type="text" class="form-control" id="txtSearch" />
         </div>
     </div>
     <br />
@@ -31,6 +36,9 @@
                         Weapon
                     </th>
                     <th>
+                        Birthday
+                    </th>
+                    <th>
                         Changes
                     </th>
 
@@ -45,6 +53,7 @@
                         <td width="20%">@character.Nation</td>
                         <td width="10%">@character.VisionType</td>
                         <td width="15%">@character.Weapon</td>
+                        <td width="10%">@character.Birthday</td>
                         <td width="30%">
                             <div class="w-100 btn-group"role="group">
                                 <a asp-controller="CharacterList" asp-route-Id="@character.Id" asp-action="Update" class="btn btn-primary mx-1">Update</a>
