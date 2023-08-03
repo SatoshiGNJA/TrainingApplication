@@ -9,14 +9,23 @@
             <a class="btn btn-primary text-white" asp-controller="CharacterList" asp-action="CreateCharacter">Add Existing Character</a>
         </div>
         <br />
-        <div class="form-inline text-right">
-            <label>Search:&nbsp;</label>
-            <input type="text" class="form-control" id="txtSearch" />
+        <div class="form-inline">
+            @using (Html.BeginForm("Index", "CharacterList", FormMethod.Get))
+            {
+                <b> Search By: </b>
+                @Html.RadioButton("SearchBy", "Name", true)<text>Name&nbsp;</text>
+                @Html.RadioButton("SearchBy", "Nation")<text>Nation&nbsp;</text>
+                @Html.RadioButton("SearchBy", "Vision")<text>Vision&nbsp;</text>
+                @Html.RadioButton("SearchBy", "Weapon")<text>Weapon</text>
+                @Html.TextBox("search", "", htmlAttributes: new { @class = " w-50 form-control" })
+                <input type="submit" value="Search" class="btn btn-success" />
+            }
         </div>
     </div>
     <br />
 
-    @if (Model.Count() > 0) { 
+    @if (Model.Count() > 0)
+    {
         <table class="table table-bordered table-striped" style="width:100%">
             <thread>
                 <tr>
@@ -45,7 +54,7 @@
                 </tr>
             </thread>
             <tbody>
-                @foreach(var character in Model)
+                @foreach (var character in Model)
                 {
                     <tr>
                         <td width="15%">@character.Characters</td>
@@ -55,7 +64,7 @@
                         <td width="15%">@character.Weapon</td>
                         <td width="10%">@character.Birthday</td>
                         <td width="30%">
-                            <div class="w-100 btn-group"role="group">
+                            <div class="w-100 btn-group" role="group">
                                 <a asp-controller="CharacterList" asp-route-Id="@character.Id" asp-action="Update" class="btn btn-primary mx-1">Update</a>
                                 <a asp-controller="CharacterList" asp-route-Id="@character.Id" asp-action="Remove" class="btn btn-danger mx-1">Remove</a>
                             </div>
@@ -67,9 +76,11 @@
 
             </tbody>
         </table>
-            }
-            else
-            {
-                <p>Hmmmmm No Characters in Here...</p>
-            }
+    }
+    else
+    {
+        <div class="col-6">
+            <h2 class="text-black-50">Hmmmmm No Characters in Here...</h2>
+        </div>
+    }
 </div>

@@ -17,11 +17,27 @@ namespace TrainingApplication.Controllers
         {
             _db = db;
         }
-        public IActionResult Index()
+
+        //SEARCH Filtering
+        public IActionResult Index(string searchBy, string search)
         {
             IEnumerable<Character> objList = _db.Characters;
-            return View(objList);
+            if (searchBy == "Name"){
+                return View(_db.Characters.Where(x => x.Characters.StartsWith(search) || search == null).ToList());
+            }else if(searchBy == "Nation"){
+                return View(_db.Characters.Where(x => x.Nation == search || search == null).ToList());
+            }else if(searchBy == "Vision"){
+                return View(_db.Characters.Where(x => x.VisionType == search || search == null).ToList());
+            }else if(searchBy == "Weapon"){
+                return View(_db.Characters.Where(x => x.Weapon == search || search == null).ToList());
+            }
+            else
+            {
+                return View(objList);
+            }
         }
+
+
         //Get-Create
         public IActionResult CreateCharacter()
         {

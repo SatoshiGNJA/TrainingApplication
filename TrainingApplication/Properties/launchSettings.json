@@ -7,13 +7,13 @@
       "sslPort": 0
     },
     "iisExpress": {
-      "applicationUrl": "https://localhost:31242/",
-      "sslPort": 30160
+      "applicationUrl": "http://localhost:16103/",
+      "sslPort": 44323
     }
   },
   "profiles": {
     "TrainingApplication": {
-      "commandName": "Executable",
+      "commandName": "IISExpress",
       "launchBrowser": true,
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
